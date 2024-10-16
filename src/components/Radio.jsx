@@ -9,12 +9,29 @@ import defaultImage from "../radio.jpg";
 const Radio = () => {
     const [stations, setStations] = useState();
     const [stationFilter, setStationFilter] = useState("all");
+    const [currentStation, setCurrentStation] = useState(null);
+    const [hoveredFilter, setHoveredFilter] = useState(null);
 
     useEffect(() => {
         setupApi(stationFilter).then((data) => {
             setStations(data);
         });
     }, [stationFilter]);
+
+    useEffect(() => {
+        let timer;
+        if (currentStation) {
+            timer = setTimeout(() => {
+                // Redémarrer le flux après 5 minutes
+                const audioPlayer = document.querySelector('.rhap_main-controls-button.rhap_play-pause-button');
+                if (audioPlayer) {
+                    audioPlayer.click();
+                    setTimeout(() => audioPlayer.click(), 100);
+                }
+            }, 5 * 60 * 1000); // 5 minutes
+        }
+        return () => clearTimeout(timer);
+    }, [currentStation]);
 
     const setupApi = async (stationFilter) => {
         const api = RadioBrowser
@@ -61,6 +78,9 @@ const Radio = () => {
         );
     };
 
+    const handlePlay = (station) => {
+        setCurrentStation(station);
+    };
 
   return (
     <div className="radio">
@@ -78,6 +98,8 @@ const Radio = () => {
                         key={index}
                         className={stationFilter === filter.name ? "selected" : ""}
                         onClick={() => setStationFilter(filter.name)}
+                        onMouseEnter={() => setHoveredFilter(filter)}
+                        onMouseLeave={() => setHoveredFilter(null)}
                     >
                         {renderFilterImage(filter)}
                     </span>
@@ -91,6 +113,21 @@ const Radio = () => {
                 >
                 </Player>
             </div>
+            {hoveredFilter && (
+                <div style={{
+                    position: 'fixed',
+                    top: '10px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: 'rgba(0,0,0,0.7)',
+                    color: 'white',
+                    padding: '5px 10px',
+                    borderRadius: '5px',
+                    zIndex: 1000
+                }}>
+                    {hoveredFilter.name}
+                </div>
+            )}
             <div className="stations">
                 {stations &&
                     stations.map((station, index) => {
@@ -113,6 +150,7 @@ const Radio = () => {
                                     customProgressBarSection={[]}
                                     customControlsSection={["MAIN_CONTROLS", "VOLUME_CONTROLS"]}
                                     autoPlayAfterSrcChange={false}
+                                    onPlay={() => handlePlay(station)}
                                 />
                             </div>
                         );
