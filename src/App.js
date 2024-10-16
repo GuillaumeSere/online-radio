@@ -1,25 +1,53 @@
-import logo from './logo.svg';
 import './App.css';
+import Radio from './components/Radio';
+import Snowfall from 'react-snowfall';
+import DayNightToggle from 'react-day-and-night-toggle'
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem('data-theme') === 'dark' ? true : false)
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const newColorScheme = e.matches ? 'dark' : 'light'
+
+        setIsDarkMode(newColorScheme === 'dark' ? true : false)
+        localStorage.setItem('data-theme', newColorScheme)
+        document.body.setAttribute('data-theme', localStorage.getItem('data-theme'))
+    })
+
+    const handleChangeTheme = () => {
+        setIsDarkMode(!isDarkMode)
+        if (!isDarkMode) {
+            localStorage.setItem('data-theme', 'dark')
+            document.body.setAttribute('data-theme', 'dark')
+        } else {
+            localStorage.setItem('data-theme', 'light')
+            document.body.setAttribute('data-theme', 'light')
+        }
+    }
+
+    return (
+        <div className="App">
+            <div className="banner">
+                <Snowfall
+                    style={{
+                        position: 'fixed',
+                        width: '100vw',
+                        height: '100vh',
+                    }}
+                />
+                <h1>SEARCH RADIO</h1>
+                <DayNightToggle
+                    onChange={handleChangeTheme}
+                    checked={isDarkMode}
+                    className="dark"
+                    size={15}
+                />
+            </div>
+            <Radio />
+        </div>
+    );
 }
 
 export default App;
