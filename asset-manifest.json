@@ -1,16 +1,25 @@
 {
   "files": {
     "main.css": "/online-radio/static/css/main.879c1578.css",
-    "main.js": "/online-radio/static/js/main.82da6e9a.js",
+    "main.js": "/online-radio/static/js/main.2eae9c63.js",
     "static/media/bg2.png": "/online-radio/static/media/bg2.99dcbbcc6c72e8168b8a.png",
     "static/media/bg3.webp": "/online-radio/static/media/bg3.44fd04a89f7921e5dd81.webp",
+    "static/media/retro.png": "/online-radio/static/media/retro.dd4923b32bb1364c24d9.png",
+    "static/media/jazz.png": "/online-radio/static/media/jazz.2727dfbc4d0129ec0129.png",
+    "static/media/rock.png": "/online-radio/static/media/rock.bed6d6813a1b4359d317.png",
+    "static/media/country.png": "/online-radio/static/media/country.5bc67dd4c6e9a56f469e.png",
     "static/media/radio.jpg": "/online-radio/static/media/radio.6085ad7266251f3d7e66.jpg",
+    "static/media/pop.png": "/online-radio/static/media/pop.d7b2b87f6da33b1858bd.png",
+    "static/media/house.png": "/online-radio/static/media/house.61443988845d4bca23dd.png",
+    "static/media/disco.png": "/online-radio/static/media/disco.f6289dc1757ce3f2d537.png",
+    "static/media/rap.png": "/online-radio/static/media/rap.5e629f3502b1f11b9590.png",
+    "static/media/all.png": "/online-radio/static/media/all.f04dc63d8c8db9fe6811.png",
     "index.html": "/online-radio/index.html",
     "main.879c1578.css.map": "/online-radio/static/css/main.879c1578.css.map",
-    "main.82da6e9a.js.map": "/online-radio/static/js/main.82da6e9a.js.map"
+    "main.2eae9c63.js.map": "/online-radio/static/js/main.2eae9c63.js.map"
   },
   "entrypoints": [
     "static/css/main.879c1578.css",
-    "static/js/main.82da6e9a.js"
+    "static/js/main.2eae9c63.js"
   ]
 }
