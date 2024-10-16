@@ -33,21 +33,32 @@ const Radio = () => {
     };
 
     const filters = [
-        "all",
-        "classical",
-        "country",
-        "dance",
-        "disco",
-        "house",
-        "jazz",
-        "pop",
-        "rap",
-        "retro",
-        "rock",
+        { name: "all", image: require("../images/all.png") },
+        { name: "classical", image: require("../images/classical.png") },
+        { name: "country", image: require("../images/country.png") },
+        { name: "dance", image: require("../images/dance.png") },
+        { name: "disco", image: require("../images/disco.png") },
+        { name: "house", image: require("../images/house.png") },
+        { name: "jazz", image: require("../images/jazz.png") },
+        { name: "pop", image: require("../images/pop.png") },
+        { name: "rap", image: require("../images/rap.png") },
+        { name: "retro", image: require("../images/retro.png") },
+        { name: "rock", image: require("../images/rock.png") },
     ];
 
     const setDefaultSrc = (event) => {
         event.target.src = defaultImage;
+    };
+
+    // Fonction pour afficher les images à la place des noms
+    const renderFilterImage = (filter) => {
+        return (
+            <img 
+                src={filter.image} 
+                alt={filter.name}
+                style={{ width: '50px', height: '50px', borderRadius:'50%' }}
+            />
+        );
     };
 
 
@@ -65,10 +76,10 @@ const Radio = () => {
                 {filters.map((filter, index) => (
                     <span
                         key={index}
-                        className={stationFilter === filter ? "selected" : ""}
-                        onClick={() => setStationFilter(filter)}
+                        className={stationFilter === filter.name ? "selected" : ""}
+                        onClick={() => setStationFilter(filter.name)}
                     >
-                        {filter}
+                        {renderFilterImage(filter)}
                     </span>
                 ))}
                 <Player
