@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/online-radio/static/css/main.879c1578.css",
+    "main.js": "/online-radio/static/js/main.82da6e9a.js",
+    "static/media/bg2.png": "/online-radio/static/media/bg2.99dcbbcc6c72e8168b8a.png",
+    "static/media/bg3.webp": "/online-radio/static/media/bg3.44fd04a89f7921e5dd81.webp",
+    "static/media/radio.jpg": "/online-radio/static/media/radio.6085ad7266251f3d7e66.jpg",
+    "index.html": "/online-radio/index.html",
+    "main.879c1578.css.map": "/online-radio/static/css/main.879c1578.css.map",
+    "main.82da6e9a.js.map": "/online-radio/static/js/main.82da6e9a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.879c1578.css",
+    "static/js/main.82da6e9a.js"
+  ]
+}
