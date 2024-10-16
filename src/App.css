@@ -53,9 +53,9 @@ h1 {
   font-size: 3rem;
   text-align: center;
   color: transparent;
-  background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+  background: linear-gradient(90deg, rgb(84, 58, 19), rgb(18, 18, 17), rgb(28, 71, 28), rgb(17, 17, 67), rgb(44, 17, 17));
+  background-size: 200% 100%;
   background-clip: text;
-  /* background-clip tells your CSS exactly where you want to apply */
   -webkit-background-clip: text;
   transition: 1s ease-in-out;
   animation: move 20s linear infinite;
@@ -63,14 +63,10 @@ h1 {
 
 @keyframes move {
     0% {
-        background-position: -1000px 0;
-    }
-    50%,
-    100% {
-        background-position: 1000px 0;
+        background-position: 0% 0;
     }
     100% {
-        background-position: -1000px 0;
+        background-position: 200% 0;
     }
 }
 

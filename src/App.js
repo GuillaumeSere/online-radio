@@ -37,7 +37,7 @@ function App() {
                         height: '100vh',
                     }}
                 />*/}
-                <h1>SEARCH RADIO</h1>
+                <h1>ONLINE RADIO</h1>
                 <DayNightToggle
                     onChange={handleChangeTheme}
                     checked={isDarkMode}
