@@ -413,14 +413,14 @@ audio {
 .footer {
   font-size: 30px;
   text-align: center;
-  border-top: 1px solid #8000ff;
+  border-top: 1px solid #4a0b0b;
   margin-top: 1rem;
   padding: 1rem;
-  background: #000000;
+  background: #750a0afa;
 }
 
 .footer p span {
-  color: #8103ffba;
+  color: #000000ba;
   padding: 1rem;
 }
 
