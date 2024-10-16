@@ -407,7 +407,7 @@ audio {
 }
 
 .rhap_controls-section .rhap_main-controls button[aria-label="Pause"] svg path {
-  fill: #c18bee !important;
+  fill: #ff0000 !important;
 }
 
 .footer {
